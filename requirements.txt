@@ -1,0 +1,11 @@
+torch
+numpy
+pytest
+tqdm
+hydra-core
+omegaconf
+transformers
+datasets
+scikit-learn
+tensorboard
+evaluate

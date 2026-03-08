@@ -1,0 +1,40 @@
+# @package _global_
+# python run/main.py -m pe=trainable,relative,rotary
+# python run/main.py pe=trainable 
+
+# Defaults
+defaults:
+  - _self_  # Use the current file as the configuration source
+
+# Positional encoding configurations with sine as default
+pe: sinusoidal  # Default value set to sine
+
+# Define the PE options as structured configs
+hydra:
+  sweeper:
+    params:
+      pe: sinusoidal,trainable
+
+data_dir: /home/emreceng/transformer_project/clean_data
+
+vocab_size: 50000
+label_smoothing: 0.1
+tokenizer_dir: /home/emreceng/transformer_project/bpe_tokenizer
+
+d_model: 256
+warmup_steps: 8000
+n_heads: 4
+num_encoder_layers: 4
+num_decoder_layers: 4
+dim_feedforward: 1024
+dropout: 0.2
+max_len: 64
+
+batch_size: 128
+epochs: 50
+lr: 0 
+weight_decay: 0.01
+save_dir: /home/emreceng/transformer_project/checkpoints
+seed: 42
+log_dir: /home/emreceng/transformer_project/logs
+val_freq: 5
